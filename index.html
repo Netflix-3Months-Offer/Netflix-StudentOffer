@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix</title>
+  <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black url('https://assets.nflxext.com/ffe/siteui/vlv3/3c49b76e-0ef4-4d9b-89e4-f3eddf1ef0c0/c3b342b4-c91c-45e9-84aa-efbda682f1d5/GB-en-20240513-popsignuptwoweeks-perspective_alpha_website_small.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background-color: rgba(0,0,0,0.7);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 350px;
+      margin: 80px auto;
+      padding: 60px 68px 40px;
+      background-color: rgba(0,0,0,0.75);
+      border-radius: 4px;
+      color: white;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 28px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      background: #333;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 16px;
+      background-color: #e50914;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .gotcha {
+      display: none;
+      font-size: 1.2em;
+      color: #e50914;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 3;
+    }
+    .logo img {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo"/>
+  </div>
+  <div class="container">
+    <h1>Sign In</h1>
+    <form id="loginForm">
+      <input type="text" placeholder="Email or phone number" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+    <div class="gotcha" id="gotchaMessage">
+      😈 <strong>GOTCHA!</strong><br>You just fell for a fake Netflix login!<br><br>
+      Don't trust shady links, even from your friends 😂
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const gotcha = document.getElementById("gotchaMessage");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      gotcha.style.display = "block";
+    });
+  </script>
+</body>
+</html>
